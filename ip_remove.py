@@ -56,11 +56,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         prog='ip-remove',
         description='remove ipv4 and ipv6 addresses from a file',
     )
-    parser.add_argument(
-        '-V', '--version',
-        action='version',
-        version=f'%(prog)s {importlib_metadata.version("ip-remove")}',
-    )
+    # The segment below was failing to find package metadata, and causing
+    # a traceback, so I commented it out for now.
+#    parser.add_argument(
+#        '-V', '--version',
+#        action='version',
+#        version=f'%(prog)s {importlib_metadata.version("ip-remove")}',
+#    )
     parser.add_argument('logfile', help='path to logfile', type=str)
     parser.add_argument(
         '--log-nr',
